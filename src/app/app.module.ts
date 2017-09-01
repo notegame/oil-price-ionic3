@@ -8,6 +8,10 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Firebase } from '@ionic-native/firebase';
+
+import { FirebaseProvider } from '../providers/firebase/firebase';
+import { OliPriceProvider } from '../providers/oli-price/oli-price';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    Firebase,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    FirebaseProvider,
+    OliPriceProvider
   ]
 })
 export class AppModule {}

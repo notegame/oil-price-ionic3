@@ -45,14 +45,18 @@ $colors: (
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
-
+$toolbar-md-background: #2d2c32;
+$list-md-background-color: #37373f;
+$item-md-paragraph-text-color: #FFF;
 
 
 
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
-
+$toolbar-ios-background: #2d2c32;
+$list-ios-background-color: #37373f;
+$item-ios-paragraph-text-color: #FFF;
 
 
 
@@ -86,3 +90,4 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+@import url('https://fonts.googleapis.com/css?family=Kanit');

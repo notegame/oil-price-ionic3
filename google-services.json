@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "965825246892",
+    "firebase_url": "https://oilprice-1860c.firebaseio.com",
+    "project_id": "oilprice-1860c",
+    "storage_bucket": "oilprice-1860c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:965825246892:android:1c4bb4d49b4cfcf7",
+        "android_client_info": {
+          "package_name": "com.exzcute.oilprice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "965825246892-7pthpe6fcrt0uqdki1u3bc3n6d1k44eq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJFzSskyJmWMRGgSfncxaY22E7GtH0tL8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

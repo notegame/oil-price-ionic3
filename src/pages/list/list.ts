@@ -1,37 +1,68 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { OliPriceProvider } from '../../providers/oli-price/oli-price';
 
 @Component({
   selector: 'page-list',
   templateUrl: 'list.html'
 })
 export class ListPage {
-  selectedItem: any;
-  icons: string[];
-  items: Array<{title: string, note: string, icon: string}>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  operator: any;
+  items = [];
+  tomorrow:any = {}
+
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public oliPrice: OliPriceProvider
+  ) {
+
     // If we navigated to this page, we will have an item available as a nav param
-    this.selectedItem = navParams.get('item');
+    this.operator = navParams.get('item');
 
-    // Let's populate this page with some filler content for funzies
-    this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-    'american-football', 'boat', 'bluetooth', 'build'];
+    this.items = this.operator.prices;
 
-    this.items = [];
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
+    this.tomorrow = this.oliPrice.getTomorrow(this.operator.name)
+
+    console.log(this.items, this.operator)
+    
+  }
+
+  getOperator(name){
+    return this.oliPrice.getOperator(name)
+  }
+
+  getOilType(name){
+    return this.oliPrice.getOilType(name)
+  }
+
+  getTomorrowPrice(price, type){
+    let currentPrice = parseFloat(price)
+    let newPrice = parseFloat(this.tomorrow[type])
+
+
+    if(newPrice > currentPrice){
+      return {
+        type : 'up',
+        icon : 'ios-arrow-up',
+        price : newPrice
+      }
+    }else
+    if(newPrice < currentPrice){
+      return {
+        type : 'down',
+        icon : 'ios-arrow-down',
+        price : newPrice
+      }
+    }else{
+      return {
+        type : 'default',
+        icon : '',
+        price : newPrice
+      }
     }
+
   }
 
-  itemTapped(event, item) {
-    // That's right, we're pushing to ourselves!
-    this.navCtrl.push(ListPage, {
-      item: item
-    });
-  }
 }
